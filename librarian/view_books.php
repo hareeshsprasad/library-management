@@ -99,7 +99,7 @@
                                 echo"<td>";echo $row["books_qty"]; echo"</td>";
                                 echo"<td>";echo $row["available_qty"];echo"</td>";
                                 // echo"<td>";echo $row["status"]; echo"</td>";
-                                echo"<td>";?><a href="edit.php?id=<?php echo $row["id"];?>">Edit</a> <?php echo"</td>";
+                                echo"<td>";?><a href="edit_books.php?id=<?php echo $row["id"];?>">Edit</a> <?php echo"</td>";
                                 echo"<td>";?><a href="delete.php?id=<?php echo $row["id"];?>">Delete</a> <?php echo"</td>";
                                 echo"</tr>";
                                  }
