@@ -9,9 +9,12 @@
             <title></title>
         </head>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        </head>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- page content area main -->
         <div class="right_col" role="main">
             <div class="">
@@ -61,7 +64,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" class="form-control" name="purchase_date" placeholder="Purchase Date" required>
+                        <input type="date" class="disableFuturedate form-control" name="purchase_date" placeholder="Purchase Date" required>
                     </td>
                 </tr>
                 <tr>
@@ -118,8 +121,28 @@
         }
 
         ?>
+        <script>
+	$(document).ready(function () {
+      var currentDate = new Date();
+      $('.disableFuturedate').datepicker({
+		changeMonth: true,
+        changeYear: true,
+		yearRange:"1900:+nn",
+      format: 'mm/dd/yyyy',
+      autoclose:true,
+      endDate: "currentDate",
+      maxDate: currentDate
+      }).on('changeDate', function (ev) {
+         $(this).datepicker('hide');
+      });
+      $('.disableFuturedate').keyup(function () {
+         if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9^-]/g, '');
+         }
+      });
+   });
+   </script>
         <?php
         include "footer.php";
         ?>
-
 </html>
