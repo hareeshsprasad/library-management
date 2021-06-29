@@ -52,7 +52,66 @@ include "connection.php";
                               </table>
                               <?php
                               if(isset($_POST['submit'])){
-                                  echo "hello";
+                                 ?>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" name="enrollmentno" placeholder="Enrollment Nmber" disabled>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" name="studentname" placeholder="student name" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" name="studentsem" placeholder="student sem" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" name="studentcontact" placeholder="student contact" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" name="studentemail" placeholder="student email" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select class="form-control selectpicker"  name="booksname">
+                                            <?php
+                                           $res=mysqli_query($link,"select books_name from books");        
+                                           while($row=mysqli_fetch_array($res)){
+                                               echo "<option>";
+                                               echo $row["books_name"];
+                                               echo "</option>";
+                                           }
+                                            ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="date" class="form-control" name="issuedate" placeholder="issuedate" required>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" name="studentusername" placeholder="studentusername" disabled>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="submit" class="form-control btn btn-default" name="issuebook" value="Issue Book" style="background-color:green;width:500px;align:center;">
+                                        </td>
+                                    </tr>
+                                </table>
+                                 <?php
                               }
                               ?>
                               </form>
