@@ -1,7 +1,7 @@
 <?php 
-        include "header.php";
-        ?>
-
+include "header.php";
+include "connection.php";
+?>
         <!-- page content area main -->
         <div class="right_col" role="main">
             <div class="">
@@ -21,18 +21,41 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="clearfix"></div>
                 <div class="row" style="min-height:500px">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>Plain Page</h2>
-
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                Add content to the page ...
+                              <form action="" name="myform" method="post">
+                              <table>
+                                <tr>
+                                    <td>
+                                        <select class="form-control" style=width:500px>
+                                        <?php
+                                        $res=mysqli_query($link,"select enrollment from student_registration");        
+                                        while($row=mysqli_fetch_array($res)){
+                                            echo "<option>";
+                                            echo $row["enrollment"];
+                                            echo "</option>";
+                                        }
+                                        ?>
+                                        </select>
+                                    </td>
+                                <td>
+                                    <input type="submit" name="submit" value="search" class="form-control btn btn-default" style="margin-top:5px"/>
+                                </td>
+                                </tr>
+                              </table>
+                              <?php
+                              if(isset($_POST['submit'])){
+                                  echo "hello";
+                              }
+                              ?>
+                              </form>
                             </div>
                         </div>
                     </div>
