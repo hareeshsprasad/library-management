@@ -34,7 +34,7 @@ include "connection.php";
                               <table>
                                 <tr>
                                     <td>
-                                        <select class="form-control" style=width:500px>
+                                        <select name="enr" class="form-control" style=width:500px>
                                         <?php
                                         $res=mysqli_query($link,"select enrollment from student_registration");        
                                         while($row=mysqli_fetch_array($res)){
@@ -53,31 +53,43 @@ include "connection.php";
                               </table>
                               <?php
                               if(isset($_POST['submit'])){
+                                $res=mysqli_query($link,"select * from student_registration where enrollment=$_POST[enr]"); 
+                                while($row=mysqli_fetch_array($res)){
+                                   $enrollment=$row['enrollment'];
+                                   $firstname=$row['firstname'];
+                                   $lastname=$row['lastname'];
+                                   $sem=$row['sem'];
+                                   $contact=$row['contact'];
+                                   $email=$row['email'];
+                                   $username=$row['username'];
+                                }
+
+
                                  ?>
                                 <table class="table table-bordered">
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name="enrollmentno" placeholder="Enrollment Nmber" disabled>
+                                            <input type="text" class="form-control" name="enrollmentno" placeholder="Enrollment Nmber" value="<?php echo $enrollment;?>" disabled>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name="studentname" placeholder="student name" required>
+                                            <input type="text" class="form-control" name="studentname" placeholder="student name" value="<?php echo $firstname.' '.$lastname;?>" required>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name="studentsem" placeholder="student sem" required>
+                                            <input type="text" class="form-control" name="studentsem" placeholder="student sem" value="<?php echo $sem;?>" required>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name="studentcontact" placeholder="student contact" required>
+                                            <input type="text" class="form-control" name="studentcontact" placeholder="student contact" value="<?php echo $contact;?>" required>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name="studentemail" placeholder="student email" required>
+                                            <input type="text" class="form-control" name="studentemail" placeholder="student email" value="<?php echo $email;?>" required>
                                         </td>
                                     </tr>
                                     <tr>
@@ -97,25 +109,41 @@ include "connection.php";
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="date" class="form-control" name="issuedate" placeholder="issuedate" required>
+                                            <input type="text" class="form-control" name="issuedate" placeholder="issuedate" value="<?php echo date("d-m-y");?>" required>
                                         </td>
                                     </tr>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name="studentusername" placeholder="studentusername" disabled>
+                                            <input type="text" class="form-control" name="studentusername" placeholder="studentusername" value="<?php echo $username;?>" disabled>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="submit" class="form-control btn btn-default" name="issuebook" value="Issue Book" style="background-color:green;width:500px;align:center;">
+                                            <input type="submit" class="form-control btn btn-default" name="issuebook" value="Issue Book" style="background-color:blue;width:500px;align:center;color:white;">
                                         </td>
                                     </tr>
                                 </table>
                                  <?php
+                                 
                               }
                               ?>
                               </form>
+                              <?php
+                              if(isset($_POST['issuebook'])){
+                                $enrollment=$_POST['enrollmentno'];
+                                $name=$_POST['studentname'];
+                                $sem=$_POST['studentsem'];
+                                $contact=$_POST['studentcontact'];
+                                $email=$_POST['studentemail'];
+                                $book_name=$_POST['booksname'];
+                                $issue_date=$_POST['issuedate'];
+                                $studentusername=$_POST['studentusername'];
+                                $query="INSERT INTO `issue_books`( `student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `book_return_date`, `student_username`) 
+                                VALUES ('$enrollment','$name','$sem','$contact','$email','$book_name','$issue_date','1','$studentusername',)";
+                                mysqli_query($link,$query);
+                              }
+                              ?>
                             </div>
                         </div>
                     </div>
@@ -126,4 +154,3 @@ include "connection.php";
         <?php
         include "footer.php";
         ?>
-
