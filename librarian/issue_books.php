@@ -45,6 +45,7 @@ include "connection.php";
                                         ?>
                                         </select>
                                     </td>
+                                   
                                 <td>
                                     <input type="submit" name="submit" value="search" class="form-control btn btn-default" style="margin-top:5px"/>
                                 </td>

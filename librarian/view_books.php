@@ -42,7 +42,7 @@
 
                                 <?php
                                 if(isset($_POST["submit1"])){
-                                die('hi');
+                                // die('hi');
                                 $search=$_POST['search'];
                                 $res=mysqli_query($link,"select * from books where books_name like'%$search%'");
                                 echo"<table class='table table-bordered'>";
