@@ -69,7 +69,7 @@ include "connection.php";
                                 <table class="table table-bordered">
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name="enrollmentno" placeholder="Enrollment Nmber" value="<?php echo $enrollment;?>" disabled>
+                                            <input type="text" class="form-control" name="enrollmentno" placeholder="Enrollment Nmber" value="<?php echo $enrollment;?>" readonly>
                                         </td>
                                     </tr>
                                     <tr>
@@ -115,7 +115,7 @@ include "connection.php";
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name="studentusername" placeholder="studentusername" value="<?php echo $username;?>" disabled>
+                                            <input type="text" class="form-control" name="studentusername" placeholder="studentusername" value="<?php echo $username;?>" readonly >
                                         </td>
                                     </tr>
                                     <tr>
@@ -140,7 +140,7 @@ include "connection.php";
                                 $issue_date=$_POST['issuedate'];
                                 $studentusername=$_POST['studentusername'];
                                 $query="INSERT INTO `issue_books`( `student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `book_return_date`, `student_username`) 
-                                VALUES ('$enrollment','$name','$sem','$contact','$email','$book_name','$issue_date','1','$studentusername',)";
+                                VALUES (' $enrollment','$name','$sem','$contact','$email','$book_name','$issue_date','','$studentusername')";                            
                                 mysqli_query($link,$query);
                               }
                               ?>
