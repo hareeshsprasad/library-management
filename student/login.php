@@ -79,6 +79,7 @@ include "connection.php";
                     <?php
                 }
                 else{
+                    $_SESSION["username"]=$_POST['username'];
                 
                 header("location:home.php");
             }       
