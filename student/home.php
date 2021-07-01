@@ -1,5 +1,6 @@
         <?php 
         include "header.php";
+        session_start();
         ?>
 
         <!-- page content area main -->
