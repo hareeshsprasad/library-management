@@ -1,7 +1,7 @@
 <?php 
         include "header.php";
         include "connection.php";
-       session_start();
+        session_start();
         ?>
 
         <!-- page content area main -->
@@ -40,6 +40,8 @@
                                 <th>Issue Date</th>                              
                                <?php
                                $res=mysqli_query($link,"select * from issue_books where student_username='$_SESSION[username]'");  
+                               echo $_SESSION['username'];
+                               exit();
                                while ($row=mysqli_fetch_array($res)){ 
                                echo "<tr>" ;
                                echo "<td>";

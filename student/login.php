@@ -1,5 +1,6 @@
 <?php
 include "connection.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,14 +73,16 @@ include "connection.php";
                 $count=mysqli_num_rows($res);
                 if($count==o){
                     ?>
-                    <div class="alert alert-danger col-lg-12 col-lg-push-0" align="center">
+                    <div class="alert alert-danger col-lg-12 col-lg-push-0">
                     <strong style="color:white">Invalid</strong> Username Or Password.
                  
                     </div>
                     <?php
                 }
                 else{
-                    $_SESSION["username"]=$_POST['username'];
+                    $_SESSION["username"]=$_POST["username"];
+                    // echo   $_SESSION["username"];
+                    // die();
                 
                 header("location:home.php");
             }       
