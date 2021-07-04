@@ -1,6 +1,6 @@
 <?php
-include "connection.php";
 session_start();
+include "connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,11 +80,8 @@ session_start();
                     <?php
                 }
                 else{
-                    $_SESSION["username"]=$_POST["username"];
-                    // echo   $_SESSION["username"];
-                    // die();
-                
-                header("location:home.php");
+                    $_SESSION["username"]=$_POST["username"];                   
+                    header("location:home.php");
             }       
               }
               ?>

@@ -40,9 +40,7 @@
                                 <th>Books Name</th>
                                 <th>Issue Date</th>                              
                                <?php
-                               $username= $_SESSION["username"];
-                            //    echo $username;
-                            //    exit();
+                               $username= $_SESSION["username"];            
                                $res=mysqli_query($link,"select * from issue_books where student_username='$username'");                               
                                while ($row=mysqli_fetch_array($res)){ 
                                echo "<tr>" ;
