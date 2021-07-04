@@ -1,4 +1,4 @@
-        <?php 
+<?php 
         session_start();
         include "header.php";
         include "connection.php";    
@@ -36,22 +36,35 @@
                             <div class="x_content">
                                <table class="table table-bordered">                            
                                 <th>Enrollment Number</th>
+                                <th>Student Name</th>
+                                <th>Conatct</th>
+                                <th>Sem</th>
                                 <th>Books Name</th>
-                                <th>Issue Date</th>                              
-                               <?php
-                               $username= $_SESSION["username"];            
-                               $res=mysqli_query($link,"select * from issue_books where student_username='$username'");                               
+                                <th>Issue Date</th>
+                                <th>Return</th>
+                               <?php                                        
+                               $res=mysqli_query($link,"select * from issue_books where book_return_date=''");                               
                                while ($row=mysqli_fetch_array($res)){ 
                                echo "<tr>" ;
                                echo "<td>";
                                echo $row["student_enrollment"];
                                echo "</td>";
                                echo "<td>";
+                               echo $row["student_name"];
+                               echo "</td>";
+                               echo "<td>";
+                               echo $row["student_contact"];
+                               echo "</td>";
+                               echo "<td>";
+                               echo $row["student_sem"];
+                               echo "</td>";
+                               echo "<td>";
                                echo $row["books_name"];
                                echo "</td>";
                                echo "<td>";
                                echo $row["books_issue_date"];
-                               echo "</td>";
+                               echo "</td>";                        
+                               echo"<td>";?><a href="return.php?id=<?php echo $row["id"];?>">Return</a> <?php echo"</td>";
                                echo "</tr>";
                                }
                                ?>

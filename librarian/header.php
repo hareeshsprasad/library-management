@@ -61,7 +61,7 @@
                             </li>
                             <li><a href="student_detail.php"><i class="fa fa-edit"></i> Student Details <span class="fa fa-chevron-down"></span></a>
                             <li><a href="issue_books.php"><i class="fa fa-edit"></i> Issue Book <span class="fa fa-chevron-down"></span></a>
-
+                            <li><a href="return_book.php"><i class="fa fa-edit"></i> Return Book <span class="fa fa-chevron-down"></span></a>
 
                             </li>
                             <li><a><i class="fa fa-desktop"></i> UI Elements <span
