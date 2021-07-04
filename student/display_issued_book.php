@@ -1,4 +1,5 @@
 <?php 
+        session_start();
         include "header.php";
         include "connection.php";
         // session_start();
@@ -39,9 +40,10 @@
                                 <th>Books Name</th>
                                 <th>Issue Date</th>                              
                                <?php
-                               $res=mysqli_query($link,"select * from issue_books where student_username='$_SESSION[username]'");  
-                               print_r($_SESSION['username']);
-                               exit();
+                               $username= $_SESSION["username"];
+                            //    echo $username;
+                            //    exit();
+                               $res=mysqli_query($link,"select * from issue_books where student_username='$username'");                               
                                while ($row=mysqli_fetch_array($res)){ 
                                echo "<tr>" ;
                                echo "<td>";
