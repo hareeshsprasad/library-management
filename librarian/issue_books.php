@@ -142,7 +142,9 @@ include "connection.php";
                                 $query="INSERT INTO `issue_books`( `student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `book_return_date`, `student_username`) 
                                 VALUES (' $enrollment','$name','$sem','$contact','$email','$book_name','$issue_date','','$studentusername')";                            
                                 mysqli_query($link,$query);
-                                mysqli_query($link,"update books set available_qty='available_qty-1' where books_name= $book_name");
+                                // $updatedQuantity=
+                                $updateQuery="update books set available_qty=available_qty-1 where books_name= '$_POST[booksname]'";
+                                mysqli_query($link,$updateQuery);
                               }
                               ?>
                             </div>
