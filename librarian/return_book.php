@@ -34,6 +34,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
+                            
                                <table class="table table-bordered">                            
                                 <th>Enrollment Number</th>
                                 <th>Student Name</th>
