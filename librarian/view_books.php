@@ -93,7 +93,7 @@
                                 echo"<tr>";
                                 echo"<td>";echo $row["books_name"]; echo"</td>";
                                 echo"<td>";echo $row["books_author_name"]; echo"</td>";
-                                echo"<td>";echo $row["  books_publication_name"];echo"</td>";
+                                echo"<td>";echo $row["books_publication_name"];echo"</td>";
                                 echo"<td>";echo $row["books_purchase_date"]; echo"</td>";
                                 echo"<td>";echo $row["books_price"]; echo"</td>";
                                 echo"<td>";echo $row["books_qty"]; echo"</td>";
