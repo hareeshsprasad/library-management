@@ -5,6 +5,7 @@ $id=$_GET["id"];
 $date=date("d-m-y");
 mysqli_query($link,"update issue_books set book_return_date='$date' where id=$id");
 $book_name="";
+mysqli_query($link,"Delete from issue_books where id=$id");
 $res=mysqli_query($link,"select * from books where id=$id");
 while($row=mysqli_fetch_array($res)){
 	$book_name=$row['books_name'];
