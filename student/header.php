@@ -54,7 +54,7 @@
                             <li><a href="display_issued_book.php"><i class="fa fa-edit"></i> My Issued Books <span class="fa fa-chevron-down"></span></a>
 
                             </li>
-                            <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                            <li><a href="search_book.php"><i class="fa fa-edit"></i> Search book <span class="fa fa-chevron-down"></span></a>
 
                             </li>
                             <li><a><i class="fa fa-desktop"></i> UI Elements <span
