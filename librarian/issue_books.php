@@ -139,12 +139,25 @@ include "connection.php";
                                 $book_name=$_POST['booksname'];
                                 $issue_date=$_POST['issuedate'];
                                 $studentusername=$_POST['studentusername'];
+                                $query="select * from books where books_name ='$_POST[booksname]'";
+                                $res=mysqli_query($link,$query);
+                                while($row=mysqli_fetch_array($res)){
+                                    $available_quantity=$row['available_qty'];
+                                }
+                                if( $available_quantity==0){
+                                    ?>
+                                    <div class="alert alert-danger col-lg-12 col-lg-push-0">
+                                    <strong style="color:white"></strong> Book not available.                                
+                                    </div>
+                                    <?php
+                                } else{
                                 $query="INSERT INTO `issue_books`( `student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `book_return_date`, `student_username`) 
                                 VALUES (' $enrollment','$name','$sem','$contact','$email','$book_name','$issue_date','','$studentusername')";                            
                                 mysqli_query($link,$query);
                                 // $updatedQuantity=
                                 $updateQuery="update books set available_qty=available_qty-1 where books_name= '$_POST[booksname]'";
                                 mysqli_query($link,$updateQuery);
+                                }
                               }
                               ?>
                             </div>
