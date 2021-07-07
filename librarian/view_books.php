@@ -34,7 +34,7 @@
                             </div>
                             <div class="x_content">
                     <form name="f1" class="form-control" action="" method="post">
-                        <input type="text" name="search">
+                        <input type="text" name="bookname">
                         <input type="button" name="submit1" value="search">
                     </form>            
                             </div>
@@ -43,14 +43,14 @@
                                 <?php
                                 if(isset($_POST["submit1"])){
                                 // die('hi');
-                                $search=$_POST['search'];
-                                $res=mysqli_query($link,"select * from books where books_name like'%$search%'");
+                                $bookname=$_POST['bookname'];
+                                $sql=" SELECT * FROM books WHERE books_name like '%".$bookname."%'";
+                                $res=mysqli_query($link,$sql);
                                 echo"<table class='table table-bordered'>";
                                 echo"<tr>";
                                 echo"<th>";echo "Book Name"; echo"</th>";
                                 echo"<th>";echo "Author"; echo"</th>";
-                                echo"<th>";echo "Publisher"; echo"</th>";
-                                echo"<th>";echo "Purchase Date"; echo"</th>";
+                                echo"<th>";echo "Publisher"; echo"</th>";                              
                                 echo"<th>";echo "Price"; echo"</th>";
                                 echo"<th>";echo "Quantity"; echo"</th>";
                                 echo"<th>";echo "Availabe Quantity"; echo"<t/h>";
@@ -62,7 +62,7 @@
                                 echo"<tr>";
                                 echo"<td>";echo $row["books_name"]; echo"</td>";
                                 echo"<td>";echo $row["books_author_name"]; echo"</td>";
-                                echo"<td>";echo $row["  books_publication_name"];echo"</td>";
+                                echo"<td>";echo $row["books_publication_name"];echo"</td>";
                                 echo"<td>";echo $row["books_purchase_date"]; echo"</td>";
                                 echo"<td>";echo $row["books_price"]; echo"</td>";
                                 echo"<td>";echo $row["books_qty"]; echo"</td>";
