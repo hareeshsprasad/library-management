@@ -1,7 +1,7 @@
-<?php 
+        <?php 
         session_start();
+        include "connection.php";
         include "header.php";
-        include "connection.php";    
         ?>
 
         <!-- page content area main -->
@@ -34,44 +34,57 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                            
-                               <table class="table table-bordered">                            
-                                <th>Enrollment Number</th>
-                                <th>Student Name</th>
-                                <th>Conatct</th>
-                                <th>Sem</th>
-                                <th>Books Name</th>
-                                <th>Issue Date</th>
-                                <th>Return</th>
-                               <?php                                        
-                               $res=mysqli_query($link,"select * from issue_books where book_return_date=''");                               
-                               while ($row=mysqli_fetch_array($res)){ 
-                               echo "<tr>" ;
-                               echo "<td>";
-                               echo $row["student_enrollment"];
-                               echo "</td>";
-                               echo "<td>";
-                               echo $row["student_name"];
-                               echo "</td>";
-                               echo "<td>";
-                               echo $row["student_contact"];
-                               echo "</td>";
-                               echo "<td>";
-                               echo $row["student_sem"];
-                               echo "</td>";
-                               echo "<td>";
-                               echo $row["books_name"];
-                               echo "</td>";
-                               echo "<td>";
-                               echo $row["books_issue_date"];
-                               echo "</td>";                        
-                               echo"<td>";?><a href="return.php?id=<?php echo $row["id"];?>">Return</a> <?php echo"</td>";
-                               echo "</tr>";
+                               <form action=""method="post">
+                               <table>
+                                <tr>
+                                    <td>
+                                        <select name="enr" class="form-control" style=width:500px>
+                                        <?php
+                                        $res=mysqli_query($link,"select enrollment from student_registration");        
+                                        while($row=mysqli_fetch_array($res)){
+                                            echo "<option>";
+                                            echo $row["enrollment"];
+                                            echo "</option>";
+                                        }
+                                        ?>
+                                        </select>
+                                    </td>
+                                   
+                                <td>
+                                    <input type="submit" name="submit" value="search" class="form-control btn btn-default" style="margin-top:5px"/>
+                                </td>
+                                </tr>
+                              </table>
+                               </form>
+                               <?php
+                               if(isset($_POST['submit'])){                        
+                                   $query="select * from issue_books where student_enrollment=$_POST[enr]";
+                                   $res=mysqli_query($link,$query);
+                                   echo"<table class='table table-bordered'>";
+                                   echo"<tr>";
+                                   echo"<th>";echo "Enrollment NUmber"; echo"</th>";
+                                   echo"<th>";echo "student Name"; echo"</th>";
+                                   echo"<th>";echo "Semester"; echo"</th>";                                   
+                                   echo"<th>";echo "Contact"; echo"</th>";  
+                                   echo"<th>";echo "Email"; echo"</th>";                                   
+                                   echo"<th>";echo "Book Name"; echo"</th>";  
+                                   echo"<th>";echo "Issue Date"; echo"</th>";
+                                   echo"<th>";echo "Return"; echo"</th>";                                                                 
+                                   echo"</tr>";
+                                   while($row=mysqli_fetch_array($res)){
+                                   echo"<tr>";
+                                   echo"<td>";echo $row["student_enrollment"]; echo"</td>";
+                                   echo"<td>";echo $row["student_name"]; echo"</td>";
+                                   echo"<td>";echo $row["student_sem"];echo"</td>";                                  
+                                   echo"<td>";echo $row["student_contact"]; echo"</td>";  
+                                   echo"<td>";echo $row["student_email"]; echo"</td>"; 
+                                   echo"<td>";echo $row["books_name"]; echo"</td>";                                  
+                                   echo"<td>";echo $row["books_issue_date"];echo"</td>"; 
+                                   echo"<td>";?><a href="return.php?id=<?php echo $row["id"];?>">Return</a> <?php echo"</td>";                                                               
+                                   echo"</tr>";
+                                   }
                                }
                                ?>
-                               
-                               </table>
-                               
                             </div>
                         </div>
                     </div>
