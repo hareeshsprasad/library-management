@@ -6,6 +6,7 @@ $date=date("d-m-y");
 mysqli_query($link,"update issue_books set book_return_date='$date' where id=$id");
 $book_name="";
 mysqli_query($link,"Delete from issue_books where id=$id");
+echo $id;
 $res=mysqli_query($link,"select * from books where id=$id");
 while($row=mysqli_fetch_array($res)){
 	$book_name=$row['books_name'];
@@ -14,5 +15,6 @@ $updateQuery="update books set available_qty=available_qty+1 where books_name= '
 mysqli_query($link,$updateQuery);
 ?>
 <script type="text/javascript">
+setTimeout(5);
 	window.location="return_book.php";
 </script>
