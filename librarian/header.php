@@ -64,7 +64,7 @@
                             <li><a href="return_book.php"><i class="fa fa-edit"></i> Return Book <span class="fa fa-chevron-down"></span></a>
                             <li><a href="display_book.php"><i class="fa fa-edit"></i> Display Book <span class="fa fa-chevron-down"></span></a>
                             </li>
-                            <li><a><i class="fa fa-desktop"></i> UI Elements <span
+                            <li><a href="send_notification.php"><i class="fa fa-desktop"></i>Send Notification <span
                                     class="fa fa-chevron-down"></span></a>
 
                             </li>
