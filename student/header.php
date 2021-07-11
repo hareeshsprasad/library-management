@@ -1,3 +1,7 @@
+<?php
+session_start();
+include "connection.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,6 +59,7 @@
 
                             </li>
                             <li><a href="search_book.php"><i class="fa fa-edit"></i> Search book <span class="fa fa-chevron-down"></span></a>
+                            <li><a href="notification.php"><i class="fa fa-edit"></i>Notification <span class="fa fa-chevron-down"></span></a>
 
                             </li>
                             <li><a><i class="fa fa-desktop"></i> UI Elements <span
