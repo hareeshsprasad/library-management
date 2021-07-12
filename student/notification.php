@@ -1,6 +1,7 @@
         <?php 
-        session_start();
+        session_start();       
         include "header.php";
+        include "connection.php";     
         ?>
 
         <!-- page content area main -->
@@ -34,6 +35,10 @@
                             </div>
                             <div class="x_content">
                                 Add content to the page ...
+                                <?Php
+                                 $username= $_SESSION["username"];
+                                 $res=mysqli_query($link,"select * from messages where student_username='$username'");
+                                ?>
                             </div>
                         </div>
                     </div>
