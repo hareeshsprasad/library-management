@@ -58,8 +58,8 @@
                                </form>
                                <?php
                                if(isset($_POST['submit'])){                        
-                                   $query="select * from issue_books where student_enrollment=$_POST[enr]";
-                                   $res=mysqli_query($link,$query);
+                                   $query="select * from issue_books where student_enrollment=$_POST[enr]";                                  
+                                   $res=mysqli_query($link,$query);                        
                                    echo"<table class='table table-bordered'>";
                                    echo"<tr>";
                                    echo"<th>";echo "Enrollment NUmber"; echo"</th>";
