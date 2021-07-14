@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "connection.php";
+$res=mysqli_query($link,"select * from messages where student_username='$_SESSION[username]'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
