@@ -2,6 +2,10 @@
         session_start();
         include "header.php";
         include "connection.php";
+        if(!isset($_SESSION["librarian"])){
+            header("login.php");
+            
+        }
         ?>
         <!DOCTYPE html>
         <html>
