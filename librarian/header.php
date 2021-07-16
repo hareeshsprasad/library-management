@@ -68,7 +68,7 @@
                                     class="fa fa-chevron-down"></span></a>
 
                             </li>
-                            <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                            <li><a href="change_password.php"><i class="fa fa-table"></i> Change Password <span class="fa fa-chevron-down"></span></a>
 
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span
