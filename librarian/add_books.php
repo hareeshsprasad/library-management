@@ -1,11 +1,15 @@
         <?php 
         session_start();
-        include "header.php";
-        include "connection.php";
         if(!isset($_SESSION["librarian"])){
-            header("login.php");
+         ?>
+         <script type="text/javascript">
+	        window.location="login.php";
+        </script>
+         <?php
             
         }
+        include "header.php";
+        include "connection.php";       
         ?>
         <!DOCTYPE html>
         <html>
