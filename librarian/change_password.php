@@ -44,13 +44,13 @@
                             <div class="x_content">
                                 <form action="" method="post">
                                     <div>
-                                        <input type="password" class="form-control" placeholder="currentpassword" name="currentPassword"  required=""/>
+                                        <input type="password" class="form-control" placeholder="currentpassword" name="currentPassword" />
                                     </div>
                                     <div>
-                                        <input type="password" class="form-control" placeholder="New Password" name="newPassword"  required=""/>
+                                        <input type="password" class="form-control" placeholder="New Password" name="newPassword"   />
                                     </div>
                                     <div>
-                                        <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword"  required=""/>
+                                        <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" />
                                     </div>
                                     <div class="col-lg-12  col-lg-push-3">
                                         <input class="btn btn-default submit " type="submit" name="submit1" value="Update Password">
@@ -58,10 +58,13 @@
                            </form>
                            <?php
                            if(isset($_POST['submit1'])){
+                               $username=$_SESSION["librarian"];
+                               echo $username;
                                $currentpass=$_POST['currentPassword'];
                                $newpass=$_POST['newPassword'];
                                $confirmpass=$_POST['confirmPassword'];
-                               $checkPassword=mysqli_query($link,"select * from admin where p ");
+                               $checkPassword=mysqli_query($link,"select * from admin where username='$username'");
+                               print_r($checkPassword);
                                while($row=mysqli_fetch_array($checkPassword)){
                                    $currentPassword=$row['password'];
                                    if($currentpass!=$currentPassword){
