@@ -44,7 +44,7 @@
                             <div class="x_content">
                                 <form action="" method="post">
                                     <div>
-                                        <input type="password" class="form-control" placeholder="currentpassword" name="currentPassword" />
+                                        <input type="password" class="form-control" placeholder="Current Password" name="currentPassword" />
                                     </div>
                                     <div>
                                         <input type="password" class="form-control" placeholder="New Password" name="newPassword"   />
@@ -59,22 +59,22 @@
                            <?php
                            if(isset($_POST['submit1'])){
                                $username=$_SESSION["librarian"];
-                               echo $username;
+                            //    echo $username;
+                            //    die();
                                $currentpass=$_POST['currentPassword'];
                                $newpass=$_POST['newPassword'];
                                $confirmpass=$_POST['confirmPassword'];
-                               $checkPassword=mysqli_query($link,"select * from admin where username='$username'");
-                               print_r($checkPassword);
+                               $checkPassword=mysqli_query($link,"select * from admin where username='$username'");                               
                                while($row=mysqli_fetch_array($checkPassword)){
-                                   $currentPassword=$row['password'];
-                                   if($currentpass!=$currentPassword){
-                                    ?>
-                                    <div class="alert alert-danger col-lg-12 col-lg-push-0">
-                                        <strong style="color:white">Incorrect  current Password.</strong>
-                                   </div><?Php
-                                   }
+                                   $currentPassword=$row['password'];                                   
                                }
-                               if($newpass!=$confirmpass)
+                               if($currentpass!=$currentPassword){
+                                ?>
+                                <div class="alert alert-danger col-lg-12 col-lg-push-0">
+                                    <strong style="color:white">Incorrect  current Password.</strong>
+                               </div><?Php
+                               }
+                               elseif($newpass!=$confirmpass)
                                {
                                 ?>
                                 <div class="alert alert-danger col-lg-12 col-lg-push-0">
@@ -82,7 +82,7 @@
                                </div><?Php
                                }
                                else{
-                                   mysqli_query($link,"update admin set password='$newpass'");
+                                   mysqli_query($link,"update admin set password='$newpass' where username='$username'");
                                }
                            }
                            
