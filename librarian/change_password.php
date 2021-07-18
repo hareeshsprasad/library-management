@@ -58,9 +58,7 @@
                            </form>
                            <?php
                            if(isset($_POST['submit1'])){
-                               $username=$_SESSION["librarian"];
-                            //    echo $username;
-                            //    die();
+                               $username=$_SESSION["librarian"];                            
                                $currentpass=$_POST['currentPassword'];
                                $newpass=$_POST['newPassword'];
                                $confirmpass=$_POST['confirmPassword'];
