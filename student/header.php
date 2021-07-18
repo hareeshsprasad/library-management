@@ -63,7 +63,7 @@ $res=mysqli_query($link,"select * from messages where student_username='$_SESSIO
                             <li><a href="notification.php"><i class="fa fa-edit"></i>Notification <span class="fa fa-chevron-down"></span></a>
 
                             </li>
-                            <li><a><i class="fa fa-desktop"></i> UI Elements <span
+                            <li><a href="change_password.php"><i class="fa fa-desktop"></i> Change Password <span
                                     class="fa fa-chevron-down"></span></a>
 
                             </li>
